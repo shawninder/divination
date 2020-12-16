@@ -39,6 +39,8 @@ export default function Weather ({ data, position }) {
   const now = get(data, ['current', 'dt'])
   const timestamp = now ? moment(now * 1000).calendar() : ''
 
+  const iconSize = 75
+
   useEffect(() => {
     setHidden(!data)
   }, [data])
@@ -59,13 +61,13 @@ export default function Weather ({ data, position }) {
             ? (
               <Image
                 src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-                width='75'
-                height='75'
+                width={iconSize}
+                height={iconSize}
                 alt={description || txt.iconFallbackAlt}
                 title={description}
               />
           ) : (
-            <div width='75' height='75' />
+            <div style={{ width: `${iconSize}px`, height: `${iconSize}px` }} />
           )}
         </div>
         <strong
