@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react'
 import get from 'lodash.get'
 
 import useCity from '../use/city'
-import styles from '../styles/location.module.css'
+import styles from '../styles/Location.module.css'
 import LocaleContext from '../ctx/locale'
 import texts from '../texts'
 
