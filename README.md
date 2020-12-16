@@ -58,7 +58,7 @@ npm test
 ```
 
 ## Contributions welcome!
-The objective of this project is to provide a realistic context for people to learn about programming for the web. With that in mind, if you'd like to contribute to this repository, please feel free to have a look at the [guidelines](/CONTRIBUTING.md), open [issues](/issues) and submit your first Pull Request!
+The objective of this project is to provide a realistic context for people to learn about programming for the web. With that in mind, if you'd like to contribute to this repository, please feel free to have a look at the [guidelines](/CONTRIBUTING.md), open [issues](https://github.com/shawninder/divination/issues) and submit your first [Pull Request](https://github.com/shawninder/divination/pulls)!
 
 - Better coding practices
 - Better performance
