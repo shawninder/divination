@@ -3,11 +3,16 @@ module.exports = {
     test: {
       presets: [
         '@babel/preset-env',
-        '@babel/react',
+        '@babel/preset-react',
         'next/babel'
       ]
     },
     development: {
+      presets: [
+        'next/babel'
+      ]
+    },
+    production: {
       presets: [
         'next/babel'
       ]
