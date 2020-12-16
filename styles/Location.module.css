@@ -1,0 +1,53 @@
+.location {
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+  clear: both;
+}
+.location > div {
+  display: inline-block;
+  width: 100%;
+}
+.location input[type=text] {
+  width: 80%;
+}
+.location input[type=submit] {
+  width: 20%;
+}
+.location button, .location p {
+  width: 100%;
+}
+.location input {
+  font-size: larger;
+}
+.location input, .location button {
+  text-align: center;
+  padding: 8px;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+.location input, .location button {
+  line-height: 1rem;
+}
+.location input[type=submit], .location button {
+  cursor: pointer;
+}
+.err {
+  color: white;
+  text-align: center;
+  background: firebrick;
+  margin: 0;
+  opacity: 1;
+  transition: opacity .4s ease-out;
+}
+.hidden {
+  opacity: 0;
+}
+.dismiss {
+  margin-left: 1em;
+  float: right;
+}
+
+.dismiss > a {
+  color: deepskyblue !important;
+}

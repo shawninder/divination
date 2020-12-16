@@ -1,0 +1,85 @@
+.card {
+  margin: 0 auto;
+  transition: opacity .4s linear;
+  text-align: center;
+}
+
+.info {
+  display: inline-block;
+  text-align: left;
+  height: 100%;
+  width: 100%;
+  padding: .3em 2%;
+}
+
+.txt, .val {
+  vertical-align: middle;
+}
+
+.txt {
+  font-size: 0.9rem;
+}
+
+.val {
+  display: inline-block;
+  width: 4rem;
+  font-size: 1.2rem;
+  margin-left: .3em;
+  font-weight: bold;
+}
+
+.icon {
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 75px;
+  width: 75px;
+}
+
+.position {
+  text-align: center;
+  margin: 0;
+  padding: .6em .3em;
+}
+.position.isCoords {
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.desc {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+strong.val {
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 2.3rem;
+}
+
+.timestamp {
+  font-size: .9rem;
+  font-style: italic;
+  font-weight: normal;
+  text-align: center;
+  clear: both;
+}
+
+.line, .leftLine {
+  margin: 0;
+  display: block;
+}
+
+.line {
+  text-align: right;
+  float: right;
+  clear: right;
+}
+
+.leftLine {
+  text-align: left;
+  float: left;
+  clear: left;
+}

@@ -1,0 +1,14 @@
+{
+    "name": "Divination",
+    "short_name": "Divination",
+    "icons": [
+        {
+            "src": "/android-chrome-96x96.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#343332",
+    "background_color": "#343332",
+    "display": "standalone"
+}

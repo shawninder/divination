@@ -1,30 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Divination
 
-## Getting Started
+![App logo: the moon](/moon.png "Divination")
 
-First, run the development server:
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/shawninder/divination)
 
+Get the weather for any city in the World!
+
+- Current Weather
+- 2 days of hour-by-hour previsions
+- 7-day forecast
+- Geolocation
+- Localization (English and French, but please contribute more languages!)
+- Dark Mode
+- Auto-save location and preferences
+- Keyboard-accessible
+- Mobile-friendly
+- Responsive UI
+
+## Live Demo
+
+[Hosted on Vercel](divination.vercel.app)
+
+[![Screencast of app usage](/trailer.gif "Click to try it out yourself!")](divination.vercel.app)
+
+## About
+A code project submitted to the Codementor [Code Projects](https://www.codementor.io/projects) initiative.
+
+This is a [Next.js](https://nextjs.org/) application bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## You will need
+This project uses the [OpenWeather](https://openweathermap.org/) API to get the meteorological conditions and [MapBox](https://www.mapbox.com/) for cartography. You'll need (free) accounts for both.
+
+Once you have your accounts, you can find your API keys and tokens. Copy `.env.local.example` to a new file named `.env.local` and save your API keys and tokens there.
+
+```
+cp .env.local.example .env.local
+```
+
+## Other dependencies
+The project also uses [Chart.js](https://www.npmjs.com/package/chart.js) for plotting, [Moment.js](https://www.npmjs.com/package/moment) for time manipulation and a few other libraries (see all dependencies in [package.json](/package.json)). Install all dependencies with npm.
+
+```sh
+npm install
+```
+
+## Development setup
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Tests
+Using [Jest](https://jestjs.io/)
+```bash
+npm test
+```
 
-## Learn More
+## Contributions welcome!
+The objective of this project is to provide a realistic context for people to learn about programming for the web. With that in mind, if you'd like to contribute to this repository, please feel free to have a look at the [guidelines](/CONTRIBUTING.md), open [issues](/issues) and submit your first Pull Request!
 
-To learn more about Next.js, take a look at the following resources:
+- Better coding practices
+- Better performance
+- Better visual design
+- Additional features
+- Translations for more languages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Anything goes! It is intended for most pull requests to be accepted, but some may be refused for straying too far from the original goal, or for any other reason, really. If you not sure, just open an issue with your idea before you start the work and any questions or details about the proposal can be discussed there.
