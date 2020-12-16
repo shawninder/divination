@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect, useContext } from 'react'
 import Chart from 'chart.js'
 import moment from 'moment'
-import get from 'lodash.get'
 
 import toDatasets from '../chart/toDatasets'
 import makeOptions from '../chart/chartOptions'

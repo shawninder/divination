@@ -1,9 +1,6 @@
-import { useContext } from 'react'
-
 import getDays from '../chart/getDays'
 import toChartData from '../chart/toChartData'
 import { colors } from '../config'
-import LocaleContext from '../ctx/locale'
 import texts from '../texts'
 
 export default function toDatasets (graphData, locale, theme) {

@@ -21,8 +21,11 @@ export default function useCity (locale) {
     return null
   }
 
-  function clearErr () {
+  function clearErr (event) {
     setErr(null)
+    if (event) {
+      event.preventDefault()
+    }
   }
 
   return { getCity, err, clearErr }

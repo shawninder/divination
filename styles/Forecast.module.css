@@ -1,5 +1,4 @@
 .forecast {
-  position: 'relative';
   width: 100%;
   min-height: 300px;
   transition: opacity .4s ease-in;

@@ -41,14 +41,17 @@ export default function Location ({ position, setPos, requestLocation }) {
   return (
     <form onSubmit={onSubmit} className={styles.location}>
       <div>
-        <input
-          type='text'
-          name='city'
-          placeholder={txt.findCity}
-          onChange={clearErr}
-          defaultValue={get(position, 'name', '')}
-          disabled={working}
-        />
+        <label className={styles.cityLabel}>
+          <span>{txt.findCity}</span>
+          <input
+            type='text'
+            name='city'
+            placeholder={txt.findCity}
+            onChange={clearErr}
+            defaultValue={get(position, 'name', '')}
+            disabled={working}
+          />
+        </label>
         <input
           type='submit'
           value={txt.getWeather}
@@ -62,13 +65,21 @@ export default function Location ({ position, setPos, requestLocation }) {
       >
         {txt.or} <strong>{txt.useLocation}</strong>
       </button>
-      <p className={`${styles.err} ${err ? '' : styles.hidden}`}>
+      <p className={`${styles.err} ${err ? '' : styles.hidden}`} role='dialog'>
         {err}
         &nbsp;
         <span
           className={styles.dismiss}
         >
-          (<a onClick={clearErr}>dismiss</a>)
+          (
+            <button
+              className={styles.dismissButton}
+              onClick={clearErr}
+              aria-label={txt.dismiss}
+            >
+              {txt.dismiss}
+            </button>
+          )
         </span>
       </p>
     </form>

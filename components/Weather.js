@@ -5,13 +5,11 @@ import get from 'lodash.get'
 
 import { colors } from '../config'
 import styles from '../styles/Weather.module.css'
-import ThemeContext from '../ctx/theme'
 import LocaleContext from '../ctx/locale'
 import texts from '../texts'
 
 export default function Weather ({ data, position }) {
   const locale = useContext(LocaleContext)
-  const theme = useContext(ThemeContext)
   const [hidden, setHidden] = useState(!data)
 
   const txt = texts[locale]
@@ -47,23 +45,28 @@ export default function Weather ({ data, position }) {
 
   return (
     <div
-      className={`${styles.card} ${styles[theme.className]}`}
+      className={styles.card}
       style={{
         opacity: hidden ? 0 : 1
       }}
     >
       <div className={styles.info}>
         <h2 className={`${styles.position} ${position && position.name ? '' : styles.isCoords}`}>
-          {position && txt.position(position) || ' '}
+          {position && txt.position(position) || '-'}
         </h2>
         <div className={styles.icon}>
-          <Image
-            src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
-            width='75'
-            height='75'
-            alt={description || txt.iconFallbackAlt}
-            title={description}
-          />
+          { icon
+            ? (
+              <Image
+                src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
+                width='75'
+                height='75'
+                alt={description || txt.iconFallbackAlt}
+                title={description}
+              />
+          ) : (
+            <div width='75' height='75' />
+          )}
         </div>
         <strong
           className={styles.desc}

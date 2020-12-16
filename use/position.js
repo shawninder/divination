@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 
 import stringifyPosition from '../lib/stringifyPosition'
 import { lsNamespace } from '../config'

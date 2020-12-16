@@ -48,6 +48,17 @@
   float: right;
 }
 
-.dismiss > a {
+.dismissButton {
   color: deepskyblue !important;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  width: auto !important;
+}
+.dismissButton:hover, .dismissButton:focus {
+  text-decoration: underline;
+}
+.cityLabel span {
+  display: none;
 }

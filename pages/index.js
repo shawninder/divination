@@ -1,4 +1,4 @@
-import { useEffect, useState, createContext } from 'react'
+import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -45,11 +45,6 @@ function Home () {
     }
   }, [position, locale])
 
-  function clear () {
-    setWeather(null)
-    setPos(null)
-  }
-
   function toggleDarkMode (event) {
     const wantedTheme = event.target.checked ? themes.dark : themes.light
     setTheme(wantedTheme)
@@ -85,6 +80,7 @@ function Home () {
               <meta property='og:title' content={txt.appTitle} />
               <meta property='og:description' content={txt.desc} />
               <meta property='og:image' content='/banner.png' />
+              <meta property='og:image:alt' content={txt.bannerAlt} />
 
               <meta property='twitter:card' content='summary_large_image' />
               <meta property='twitter:url' content="https://divination.vercel.app" />
@@ -110,7 +106,7 @@ function Home () {
                   if (item !== locale) {
                     others.push(
                       <Link key={item} href='/' locale={item}>
-                        <a>{item}</a>
+                        <a href='/'>{item}</a>
                       </Link>
                     )
                   }

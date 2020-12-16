@@ -27,6 +27,8 @@ const texts = {
     wind: 'wind',
     rain: 'rain',
     snow: 'snow',
+    bannerAlt: 'The Moon',
+    dismiss: 'dismiss',
     position
   },
   fr: {
@@ -51,6 +53,8 @@ const texts = {
     wind: 'vent',
     rain: 'pluie',
     snow: 'neige',
+    bannerAlt: 'La Lune',
+    dismiss: 'fermer',
     position
   }
 }

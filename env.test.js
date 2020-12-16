@@ -5,20 +5,17 @@ const readFile = promisify(fs.readFile)
 
 const NEWLINES_MATCH = /\n|\r|\r\n/g
 
-describe('Environment variables', () => {
-  let localEnv, exampleEnv
-  beforeAll(async () => {
+describe('environment variables', () => {
+  it('can load .env.local', async () => {
+    expect.assertions(1)
     return Promise.all([
       await readFile('./.env.local'),
       await readFile('./.env.local.example')
     ])
       .then(([ local, example ]) => {
-        localEnv = local.toString()
-        exampleEnv = example.toString()
+        const localEnv = local.toString()
+        const exampleEnv = example.toString()
+        expect(localEnv.match(NEWLINES_MATCH)).toHaveLength(exampleEnv.match(NEWLINES_MATCH).length)
       })
-  })
-
-  test('can load .env.local', () => {
-    expect(localEnv.match(NEWLINES_MATCH).length).toBe(exampleEnv.match(NEWLINES_MATCH).length)
   })
 })

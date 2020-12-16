@@ -22,7 +22,7 @@
   min-height: 100vh;
   background-size: 300px;
   display: grid;
-  grid-template-columns: 100vw;
+  grid-template-columns: 100%;
   align-items: center;
 }
 
