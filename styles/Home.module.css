@@ -50,14 +50,14 @@
   text-decoration: underline;
 }
 
-.frame section[name=map] {
+.frame div.map {
   position: absolute;
   width: 100%;
   z-index: 1;
 }
-.frame section[name=weather],
-.frame section[name=forecast],
-.frame section[name=weekForecast] {
+.frame div.weather,
+.frame div.forecast,
+.frame div.weekForecast {
   z-index: 2;
   position: relative;
 }
@@ -66,18 +66,18 @@
   z-index: 0;
 }
 
-.frame section[name=options], .frame section[name=langs] {
+.frame div.options, .frame div.langs {
   margin: .3em .5em .3em .3em;
 }
 
-.frame section[name=options] {
+.frame div.options {
   float: left;
 }
 
-.frame section[name=options] label, .frame section[name=options] input {
+.frame div.options label, .frame div.options input {
   cursor: pointer;
 }
 
-.frame section[name=langs] {
+.frame div.langs {
   float: right;
 }

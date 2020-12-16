@@ -7,6 +7,7 @@ export function position (pos) {
 const texts = {
   en: {
     appTitle: 'Divination',
+    desc: 'Get the weather for any city in the World!',
     daysLabel: 'Days',
     tempLabel: 'Temperature',
     minTempLabel: 'Low',
@@ -19,6 +20,7 @@ const texts = {
     or: 'Or',
     useLocation: 'use your current location',
     feelsLikeSpan: 'feels like',
+    iconFallbackAlt: 'No weather info',
     darkMode: 'Dark Mode',
     worldMap: 'Map of the World',
     worldComment: 'Beautiful',
@@ -29,6 +31,7 @@ const texts = {
   },
   fr: {
     appTitle: 'Divination',
+    desc: 'Trouvez la météo, où que vous soyez!',
     daysLabel: 'Jours',
     tempLabel: 'Température',
     minTempLabel: 'Minimum',
@@ -41,6 +44,7 @@ const texts = {
     or: 'Ou',
     useLocation: 'utilisez votre position actuelle',
     feelsLikeSpan: 'Ressenti',
+    iconFallbackAlt: 'Aucune info météo',
     darkMode: 'Mode Sombre',
     worldMap: 'Carte du Monde',
     worldComment: 'Magnifique',

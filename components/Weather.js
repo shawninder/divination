@@ -54,14 +54,14 @@ export default function Weather ({ data, position }) {
     >
       <div className={styles.info}>
         <h2 className={`${styles.position} ${position && position.name ? '' : styles.isCoords}`}>
-          {position && txt.position(position)}
+          {position && txt.position(position) || ' '}
         </h2>
         <div className={styles.icon}>
           <Image
             src={`http://openweathermap.org/img/wn/${icon}@2x.png`}
             width='75'
             height='75'
-            alt={description}
+            alt={description || txt.iconFallbackAlt}
             title={description}
           />
         </div>

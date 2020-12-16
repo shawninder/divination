@@ -37,7 +37,7 @@ export default function Map ({ position }) {
         height: mapHeight
       }}
     >
-      <span>
+      <div>
         {(lat === 0 && lon === 0)
           ? (
             <Image
@@ -59,7 +59,7 @@ export default function Map ({ position }) {
               title={txt.position(position)}
             />
           )}
-        </span>
+        </div>
     </div>
   )
 }
