@@ -1,6 +1,6 @@
 # Divination
 
-![App logo: the moon](/moon.png "Divination")
+![App logo: the moon](public/moon.png "Divination")
 
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/shawninder/divination)
 
@@ -19,9 +19,9 @@ Get the weather for any city in the World!
 
 ## Live Demo
 
-[Hosted on Vercel](divination.vercel.app)
+[Hosted on Vercel](https://divination.vercel.app)
 
-[![Screencast of app usage](/trailer.gif "Click to try it out yourself!")](divination.vercel.app)
+[![Screencast of app usage](public/trailer.gif "Click to try it out yourself!")](https://divination.vercel.app)
 
 ## About
 A code project submitted to the Codementor [Code Projects](https://www.codementor.io/projects) initiative.
@@ -45,7 +45,7 @@ npm install
 ```
 
 ## Development setup
-```bash
+```sh
 npm run dev
 ```
 
@@ -53,7 +53,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Tests
 Using [Jest](https://jestjs.io/)
-```bash
+```sh
 npm test
 ```
 
@@ -66,4 +66,6 @@ The objective of this project is to provide a realistic context for people to le
 - Additional features
 - Translations for more languages
 
-Anything goes! It is intended for most pull requests to be accepted, but some may be refused for straying too far from the original goal, or for any other reason, really. If you not sure, just open an issue with your idea before you start the work and any questions or details about the proposal can be discussed there.
+Anything goes!
+
+It is intended for most pull requests to be accepted, but some may be refused for straying too far from the original goal, or for any other reason, really. If you're not sure, just open an issue with your idea before you start the work and any questions or details about the proposal can be discussed there.
