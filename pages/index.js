@@ -86,7 +86,7 @@ function Home () {
               <meta property='twitter:url' content="https://divination.vercel.app" />
               <meta property='twitter:title' content={txt.appTitle} />
               <meta property='twitter:description' content={txt.desc} />
-              <meta property='twitter:image' content='/banner.png?' />
+              <meta property='twitter:image' content='/banner.png?v=2' />
             </Head>
 
             <main className={styles.main}>
