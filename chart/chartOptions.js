@@ -1,43 +1,70 @@
 import generateLabels from '../chart/generateLabels'
 import { colors } from '../config'
 
+import dateFnsLocales from '../lib/dateFnsLocales'
+
 export default function makeOptions (locale, theme, showTimes) {
-  const xAxes = [{
-    id: 'time-axis',
+  const timeAxis = {
+    axis: 'x',
     type: 'time',
-    gridLines: {
-      display: false
-    },
-    bounds: 'data',
     time: {
       displayFormats: {
-        hour: 'H[:00]'
+        hour: 'H:mm'
       },
       unit: 'hour',
       round: true
     },
     ticks: {
       display: showTimes,
-      fontColor: theme.fontColor
+      color: theme.fontColor
     }
-  }, {
-    id: 'days-axis',
+  }
+  const daysAxis = {
+    axis: 'x',
     type: 'time',
-    gridLines: {
-      display: false
+    adapters: {
+      date: {
+        locale: dateFnsLocales[locale]
+      }
     },
-    bounds: 'data',
     position: 'top',
     time: {
       displayFormats: {
-        day: 'ddd'
+        day: 'EEE'
       },
       unit: 'day'
     },
     ticks: {
-      fontColor: theme.fontColor
+      color: theme.fontColor
     }
-  }]
+  }
+  const tempAxis = {
+    axis: 'y',
+    type: 'linear',
+    title: {
+      display: true,
+      text: 'ºC',
+      color: colors.temp
+    },
+    ticks: {
+      callback: Math.round,
+      color: colors.temp
+    }
+  }
+  const percentAxis = {
+    axis: 'y',
+    type: 'linear',
+    position: 'right',
+    title: {
+      display: true,
+      text: '%',
+      color: colors.pop
+    },
+    ticks: {
+      callback: Math.round,
+      color: colors.pop
+    }
+  }
   return {
     responsive: true,
     maintainAspectRatio: false,
@@ -51,41 +78,15 @@ export default function makeOptions (locale, theme, showTimes) {
         fontColor: theme.fontColor
       }
     },
+    locale,
+    grid: {
+      display: false
+    },
     scales: {
-      xAxes,
-      yAxes: [{
-        id: 'temp-axis',
-        type: 'linear',
-        gridLines: {
-          display: false
-        },
-        scaleLabel: {
-          display: true,
-          labelString: 'ºC',
-          fontColor: colors.temp
-        },
-        ticks: {
-          callback: (tick) => {
-            return Math.round(tick)
-          },
-          fontColor: colors.temp
-        }
-      }, {
-        id: 'percent-axis',
-        type: 'linear',
-        gridLines: {
-          display: false
-        },
-        position: 'right',
-        scaleLabel: {
-          display: true,
-          labelString: '%',
-          fontColor: colors.pop
-        },
-        ticks: {
-          fontColor: colors.pop
-        }
-      }]
+      timeAxis,
+      daysAxis,
+      tempAxis,
+      percentAxis
     }
   }
 }

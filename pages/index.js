@@ -127,7 +127,7 @@ function Home () {
               </div>
               {weather
                 ? (
-                  <h3>7-day forecast</h3>
+                  <h3>{txt.weekForecastLabel}</h3>
                 ) : null
               }
               <div className={styles.weekForecast}>

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useContext } from 'react'
-import Chart from 'chart.js'
-import moment from 'moment'
+import PropTypes from 'prop-types'
+import { Chart, registerables } from 'chart.js'
+import 'chartjs-adapter-date-fns'
 
 import toDatasets from '../chart/toDatasets'
 import makeOptions from '../chart/chartOptions'
@@ -16,7 +17,10 @@ function Forecast ({ data, toGraphData, showTimes, name }) {
   const [hidden, setHidden] = useState(true)
 
   useEffect(() => {
-    moment.locale(locale)
+    Chart.register(...registerables)
+  }, [])
+
+  useEffect(() => {
     if (chart.current) {
       chart.current.update()
     }
@@ -28,13 +32,15 @@ function Forecast ({ data, toGraphData, showTimes, name }) {
       if (chart.current) {
         chart.current.destroy()
       }
-      chart.current = new Chart(canvas.current.getContext('2d'), {
+      const chartConfig = {
         type: 'line',
         data: {
           datasets: toDatasets(graphData, locale, theme)
         },
         options: makeOptions(locale, theme, showTimes)
-      })
+      }
+
+      chart.current = new Chart(canvas.current, chartConfig)
       setHidden(false)
     } else {
       setHidden(true)
@@ -53,6 +59,25 @@ function Forecast ({ data, toGraphData, showTimes, name }) {
       <canvas ref={canvas} />
     </div>
   )
+}
+
+Forecast.propTypes = {
+  data: PropTypes.shape({
+    hourly: PropTypes.arrayOf(
+      PropTypes.shape({
+        dt: PropTypes.number.isRequired,
+        temp: PropTypes.number.isRequired,
+        humidity: PropTypes.number.isRequired,
+        pop: PropTypes.number.isRequired,
+        wind_speed: PropTypes.number.isRequired,
+        feels_like: PropTypes.number.isRequired,
+        icon: PropTypes.string
+      })
+    )
+  }),
+  toGraphData: PropTypes.func.isRequired,
+  showTimes: PropTypes.bool,
+  name: PropTypes.string.isRequired
 }
 
 export default Forecast

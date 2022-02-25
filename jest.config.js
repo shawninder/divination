@@ -1,4 +1,9 @@
-module.exports = {
+const nextJest = require('next/jest')
+
+const createJestConfig = nextJest({
+  dir: './'
+})
+const customJestConfig = {
   testPathIgnorePatterns: [
     '/.next/',
     '/node_modules/',
@@ -6,3 +11,4 @@ module.exports = {
     '/coverage/'
   ]
 }
+module.exports = createJestConfig(customJestConfig)

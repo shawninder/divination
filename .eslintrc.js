@@ -1,7 +1,7 @@
 module.exports = {
   'env': {
     'browser': true,
-    'es2021': true,
+    'es2022': true,
     'node': true,
     'jest/globals': true
   },
@@ -12,17 +12,14 @@ module.exports = {
     'plugin:jest/all'
   ],
   'parserOptions': {
-    'ecmaFeatures': {
-      'jsx': true
-    },
-    'ecmaVersion': 12,
     'sourceType': 'module'
   },
-  'plugins': [
-    'react',
-    'jest'
-  ],
   globals: {
     React: 'writable'
+  },
+  settings: {
+    react: {
+      version: 'detect'
+    }
   }
 }

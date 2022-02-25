@@ -1,4 +1,4 @@
-import Chart from 'chart.js'
+import { Chart } from 'react-chartjs-2'
 
 import texts from '../texts'
 
@@ -18,13 +18,13 @@ export default function generateLabels (chart, locale) {
     var arcOpts = chart.options.elements.arc
     var fill = custom.backgroundColor
       ? custom.backgroundColor
-      : Chart.helpers.getValueAtIndexOrDefault(dataset.backgroundColor, idx, arcOpts.backgroundColor)
+      : Chart.helpers.resolve(dataset.backgroundColor, idx, arcOpts.backgroundColor)
     var stroke = custom.borderColor
       ? custom.borderColor
-      : Chart.helpers.getValueAtIndexOrDefault(dataset.borderColor, idx, arcOpts.borderColor)
+      : Chart.helpers.resolve(dataset.borderColor, idx, arcOpts.borderColor)
     var bw = custom.borderWidth
       ? custom.borderWidth
-      : Chart.helpers.getValueAtIndexOrDefault(dataset.borderWidth, idx, arcOpts.borderWidth)
+      : Chart.helpers.resolve(dataset.borderWidth, idx, arcOpts.borderWidth)
     labels.push({
       text: label,
       fillStyle: fill,

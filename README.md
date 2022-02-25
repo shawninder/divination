@@ -38,7 +38,7 @@ cp .env.local.example .env.local
 ```
 
 ## Other dependencies
-The project also uses [Chart.js](https://www.npmjs.com/package/chart.js) for plotting, [Moment.js](https://www.npmjs.com/package/moment) for time manipulation and a few other libraries (see all dependencies in [package.json](/package.json)). Install all dependencies with npm.
+The project also uses [Chart.js](https://www.npmjs.com/package/chart.js) for plotting, [date-fns](https://www.npmjs.com/package/date-fns) for time manipulation and a few other libraries (see all dependencies in [package.json](/package.json)). Install all dependencies with npm.
 
 ```sh
 npm install

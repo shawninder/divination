@@ -1,4 +1,5 @@
 import { useContext, useState, useRef, useEffect } from 'react'
+import { positionType } from '../propTypes'
 import Image from 'next/image'
 import get from 'lodash.get'
 
@@ -12,7 +13,7 @@ import { maxWidth, mapHeight, mapZoom, mapHost } from '../config'
 
 const token = process.env.NEXT_PUBLIC_MAPBOX_PUBLIC_TOKEN
 
-export default function Map ({ position }) {
+function Map ({ position }) {
   const locale = useContext(LocaleContext)
   const theme = useContext(ThemeContext)
   const { width: windowWidth } = useWindowSize()
@@ -25,7 +26,9 @@ export default function Map ({ position }) {
   const width = Math.min(containerWidth, maxWidth) || 1200
 
   useEffect(() => {
-    setContainerWidth(container.current.offsetWidth)
+    if (container.current) {
+      setContainerWidth(container.current.offsetWidth)
+    }
   }, [windowWidth])
 
   return (
@@ -62,3 +65,9 @@ export default function Map ({ position }) {
     </div>
   )
 }
+
+Map.propTypes = {
+  position: positionType
+}
+
+export default Map

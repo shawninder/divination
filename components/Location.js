@@ -1,4 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
+import PropTypes from 'prop-types'
+import { positionType } from '../propTypes'
 import get from 'lodash.get'
 
 import useCity from '../use/city'
@@ -6,7 +8,7 @@ import styles from '../styles/Location.module.css'
 import LocaleContext from '../ctx/locale'
 import texts from '../texts'
 
-export default function Location ({ position, setPos, requestLocation }) {
+function Location ({ position, setPos, requestLocation }) {
   const locale = useContext(LocaleContext)
   const [working, setWorking] = useState(false)
   const { getCity, err, clearErr } = useCity(locale)
@@ -85,3 +87,11 @@ export default function Location ({ position, setPos, requestLocation }) {
     </form>
   )
 }
+
+Location.propTypes = {
+  position: positionType,
+  setPos: PropTypes.func.isRequired,
+  requestLocation: PropTypes.func.isRequired
+}
+
+export default Location
