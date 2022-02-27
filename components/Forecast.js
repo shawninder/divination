@@ -8,6 +8,7 @@ import makeOptions from '../chart/chartOptions'
 import styles from '../styles/Forecast.module.css'
 import LocaleContext from '../ctx/locale'
 import ThemeContext from '../ctx/theme'
+import getBounds from '../chart/getBounds'
 
 function Forecast ({ data, toGraphData, showTimes, name }) {
   const chart = useRef(null)
@@ -32,12 +33,13 @@ function Forecast ({ data, toGraphData, showTimes, name }) {
       if (chart.current) {
         chart.current.destroy()
       }
+      const bounds = getBounds(graphData)
       const chartConfig = {
         type: 'line',
         data: {
-          datasets: toDatasets(graphData, locale, theme)
+          datasets: toDatasets(graphData, locale, theme, bounds)
         },
-        options: makeOptions(locale, theme, showTimes)
+        options: makeOptions(locale, theme, showTimes, bounds)
       }
 
       chart.current = new Chart(canvas.current, chartConfig)

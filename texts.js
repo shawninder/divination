@@ -51,7 +51,7 @@ const texts = {
     rain: 'pluie',
     snow: 'neige',
     tempLabel: 'Température',
-    useLocation: 'utilisez votre position actuelle',
+    useLocation: 'utiliser votre position actuelle',
     weekForecastLabel: 'Prévisions sur 7 jours',
     wind: 'vent',
     worldComment: 'Magnifique',

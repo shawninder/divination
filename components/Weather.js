@@ -25,26 +25,26 @@ function Weather ({ data, position }) {
   const description = get(data, ['current', 'weather', '0', 'description'])
 
   const tempRaw = get(data, ['current', 'temp'])
-  const temp = tempRaw ? `${Math.round(tempRaw)}ºC` : ''
+  const temp = typeof tempRaw !== 'undefined' ? `${Math.round(tempRaw)}ºC` : ''
 
   const feelRaw = get(data, ['current', 'feels_like'])
-  const feelsLike = feelRaw ? `${Math.round(feelRaw)}ºC` : ''
+  const feelsLike = typeof feelRaw !== 'undefined' ? `${Math.round(feelRaw)}ºC` : ''
 
   const humidity = get(data, ['current', 'humidity'])
-  const hum = humidity ? `${humidity}%` : ''
+  const hum = typeof humidity !== 'undefined' ? `${humidity}%` : ''
 
 
   const windSpeed = get(data, ['current', 'wind_speed'])
-  const wind = windSpeed ? `${windSpeed}m/s` : ''
+  const wind = typeof windSpeed !== 'undefined' ? `${windSpeed}m/s` : ''
 
   const rainRaw = get(data, ['current', 'rain', '1h'])
-  const rain = rainRaw ? `${rainRaw}mm` : ''
+  const rain = typeof rainRaw !== 'undefined' ? `${rainRaw}mm` : ''
 
   const snowRaw = get(data, ['current', 'snow', '1h'])
-  const snow = snowRaw ? `${snowRaw}mm` : ''
+  const snow = typeof snowRaw !== 'undefined' ? `${snowRaw}mm` : ''
 
   const now = get(data, ['current', 'dt'])
-  const timestamp = now ? formatRelative(now * 1000, new Date(), {locale: dateFnsLocales[locale]}) : ''
+  const timestamp = typeof now !== 'undefined' ? formatRelative(now * 1000, new Date(), {locale: dateFnsLocales[locale]}) : ''
 
   const iconSize = 75
 
@@ -62,7 +62,7 @@ function Weather ({ data, position }) {
       <div className={styles.info}>
         <h2
           className={`${styles.position} ${
-            position && position.name ? '' : styles.isCoords
+            position && position.name && position.name !== '' ? '' : styles.isCoords
           }`}
         >
           {(position && txt.position(position)) || '-'}

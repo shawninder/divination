@@ -5,12 +5,14 @@ export const themes = {
     className: 'theme-light',
     mapBoxTheme: 'light-v10',
     fontColor: 'dimgrey',
+    chartGridColor: 'darkgray',
     bg: '#f6f6f4'
   },
   dark: {
     className: 'theme-dark',
     mapBoxTheme: 'dark-v10',
     fontColor: 'aliceblue',
+    chartGridColor: 'lightcyan',
     bg: '#343332'
   }
 }

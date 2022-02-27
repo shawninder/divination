@@ -3,31 +3,35 @@ import { colors } from '../config'
 
 import dateFnsLocales from '../lib/dateFnsLocales'
 
-export default function makeOptions (locale, theme, showTimes) {
+export default function makeOptions (locale, theme, showTimes, bounds) {
   const timeAxis = {
     axis: 'x',
     type: 'time',
+    bounds: 'data',
     time: {
       displayFormats: {
         hour: 'H:mm'
       },
-      unit: 'hour',
-      round: true
+      unit: 'hour'
     },
     ticks: {
       display: showTimes,
       color: theme.fontColor
-    }
-  }
-  const daysAxis = {
-    axis: 'x',
-    type: 'time',
+    },
     adapters: {
       date: {
         locale: dateFnsLocales[locale]
       }
     },
-    position: 'top',
+    grid: {
+      color: theme.chartGridColor
+    }
+  }
+  const daysAxis = {
+    axis: 'x',
+    type: 'time',
+    min: bounds.start,
+    max: bounds.end,
     time: {
       displayFormats: {
         day: 'EEE'
@@ -36,6 +40,16 @@ export default function makeOptions (locale, theme, showTimes) {
     },
     ticks: {
       color: theme.fontColor
+    },
+    adapters: {
+      date: {
+        locale: dateFnsLocales[locale]
+      }
+    },
+    position: 'top',
+    grid: {
+      color: theme.fontColor,
+      lineWidth: 3
     }
   }
   const tempAxis = {
@@ -49,6 +63,9 @@ export default function makeOptions (locale, theme, showTimes) {
     ticks: {
       callback: Math.round,
       color: colors.temp
+    },
+    grid: {
+      display: false
     }
   }
   const percentAxis = {
@@ -63,6 +80,9 @@ export default function makeOptions (locale, theme, showTimes) {
     ticks: {
       callback: Math.round,
       color: colors.pop
+    },
+    grid: {
+      display: false
     }
   }
   return {
@@ -79,14 +99,12 @@ export default function makeOptions (locale, theme, showTimes) {
       }
     },
     locale,
-    grid: {
-      display: false
-    },
     scales: {
       timeAxis,
       daysAxis,
       tempAxis,
       percentAxis
-    }
+    },
+    parsing: false
   }
 }
