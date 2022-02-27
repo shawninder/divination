@@ -23,6 +23,7 @@ export default function makeOptions (locale, theme, showTimes, bounds) {
       }
     },
     grid: {
+      borderWidth: 0,
       color: theme.chartGridColor
     }
   }
@@ -47,6 +48,7 @@ export default function makeOptions (locale, theme, showTimes, bounds) {
     },
     position: 'top',
     grid: {
+      borderWidth: 0,
       color: theme.fontColor,
       lineWidth: 3
     }
