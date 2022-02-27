@@ -1,4 +1,3 @@
-import generateLabels from '../chart/generateLabels'
 import { colors } from '../config'
 
 import dateFnsLocales from '../lib/dateFnsLocales'
@@ -86,18 +85,9 @@ export default function makeOptions (locale, theme, showTimes, bounds) {
     }
   }
   return {
+    animation: false,
     responsive: true,
     maintainAspectRatio: false,
-    legend: {
-      position: 'top',
-      labels: {
-        generateLabels: (chart) => {
-          return generateLabels(chart, locale)
-        },
-        usePointStyle: true,
-        fontColor: theme.fontColor
-      }
-    },
     locale,
     scales: {
       timeAxis,
@@ -105,6 +95,14 @@ export default function makeOptions (locale, theme, showTimes, bounds) {
       tempAxis,
       percentAxis
     },
-    parsing: false
+    parsing: false,
+    plugins: {
+      legend: {
+        display: true,
+        labels: {
+          color: theme.fontColor
+        }
+      }
+    }
   }
 }
