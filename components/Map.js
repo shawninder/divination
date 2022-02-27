@@ -1,5 +1,4 @@
 import { useContext, useState, useRef, useEffect } from 'react'
-import { positionType } from '../propTypes'
 import Image from 'next/image'
 import get from 'lodash.get'
 
@@ -8,13 +7,15 @@ import roundCoord from '../util/roundCoord'
 import styles from '../styles/Map.module.css'
 import ThemeContext from '../ctx/theme'
 import LocaleContext from '../ctx/locale'
+import PositionContext from '../ctx/position'
 import texts from '../texts'
 import { maxWidth, mapHeight, mapZoom, mapHost } from '../config'
 
 const token = process.env.NEXT_PUBLIC_MAPBOX_PUBLIC_TOKEN
 
-function Map ({ position }) {
+function Map () {
   const locale = useContext(LocaleContext)
+  const {position} = useContext(PositionContext)
   const theme = useContext(ThemeContext)
   const { width: windowWidth } = useWindowSize()
   const [containerWidth, setContainerWidth] = useState(windowWidth)
@@ -64,10 +65,6 @@ function Map ({ position }) {
         </div>
     </div>
   )
-}
-
-Map.propTypes = {
-  position: positionType
 }
 
 export default Map

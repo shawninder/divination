@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from 'react'
 import PropTypes from 'prop-types'
-import { positionType } from '../propTypes'
 import Image from 'next/image'
 import get from 'lodash.get'
 
 import { colors } from '../config'
 import styles from '../styles/Weather.module.css'
 import LocaleContext from '../ctx/locale'
+import PositionContext from '../ctx/position'
 import texts from '../texts'
 
 import {
@@ -15,8 +15,9 @@ import {
 
 import dateFnsLocales from '../lib/dateFnsLocales'
 
-function Weather ({ data, position }) {
+function Weather ({ data }) {
   const locale = useContext(LocaleContext)
+  const {position} = useContext(PositionContext)
   const [hidden, setHidden] = useState(!data)
 
   const txt = texts[locale]
@@ -61,9 +62,7 @@ function Weather ({ data, position }) {
     >
       <div className={styles.info}>
         <h2
-          className={`${styles.position} ${
-            position && position.name && position.name !== '' ? '' : styles.isCoords
-          }`}
+          className={`${styles.position} ${get(position, 'isCoords') ? styles.isCoords : ''}`}
         >
           {(position && txt.position(position)) || '-'}
         </h2>
@@ -134,8 +133,7 @@ function Weather ({ data, position }) {
 }
 
 Weather.propTypes = {
-  data: PropTypes.object,
-  position: positionType
+  data: PropTypes.object
 }
 
 export default Weather
