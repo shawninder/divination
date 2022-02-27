@@ -52,7 +52,7 @@ function Forecast ({ data, toGraphData, showTimes, name }) {
   return (
     <div
       key={name}
-      className={`${styles.forecast} ${styles[theme.className]}`}
+      className={styles.forecast}
       style={{
         opacity: hidden ? 0 : 1,
         backgroundColor: theme.bg

@@ -4,11 +4,3 @@
   transition: opacity .4s ease-in;
   padding-bottom: 3rem;
 }
-
-.theme-light {
-  color: black;
-}
-
-.theme-dark {
-  color: white;
-}

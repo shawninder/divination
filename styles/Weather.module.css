@@ -2,6 +2,7 @@
   margin: 0 auto;
   transition: opacity .4s linear;
   text-align: center;
+  min-height: 300px;
 }
 
 .info {
