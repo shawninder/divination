@@ -24,7 +24,8 @@ export default function makeOptions (locale, theme, showTimes, bounds) {
     },
     grid: {
       borderWidth: 0,
-      color: theme.chartGridColor
+      color: theme.chartGridColor,
+      tickColor: ''
     }
   }
   const daysAxis = {
