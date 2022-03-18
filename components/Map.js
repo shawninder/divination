@@ -3,20 +3,18 @@ import Image from 'next/image'
 import get from 'lodash.get'
 
 import useWindowSize from '../use/windowSize'
-import roundCoord from '../util/roundCoord'
 import styles from '../styles/Map.module.css'
-import ThemeContext from '../ctx/theme'
 import LocaleContext from '../ctx/locale'
 import PositionContext from '../ctx/position'
 import texts from '../texts'
 import { maxWidth, mapHeight, mapZoom, mapHost } from '../config'
+import getMapUrl from '../lib/getMapUrl'
 
 const token = process.env.NEXT_PUBLIC_MAPBOX_PUBLIC_TOKEN
 
 function Map () {
   const locale = useContext(LocaleContext)
   const {position} = useContext(PositionContext)
-  const theme = useContext(ThemeContext)
   const { width: windowWidth } = useWindowSize()
   const [containerWidth, setContainerWidth] = useState(windowWidth)
   const container = useRef(null)
@@ -32,6 +30,12 @@ function Map () {
     }
   }, [windowWidth])
 
+  const getSrc = getMapUrl(mapHost, lon, lat, mapZoom, width, mapHeight, token)
+
+  const imgSrc = {
+    light: getSrc('light-v10'),
+    dark: getSrc('dark-v10')
+  }
   return (
     <div
       className={styles.container}
@@ -41,28 +45,30 @@ function Map () {
       }}
     >
       <div>
-        {(lat === 0 && lon === 0)
-          ? (
-            <Image
-              key='placeholder'
-              src='https://static.thenounproject.com/png/59554-200.png'
-              width={mapHeight}
-              height={mapHeight}
-              alt={txt.worldMap}
-              title={txt.worldComment}
-            />
-          ) : (
-            <Image
+        {lat === 0 && lon === 0 ? (
+          <Image
+            key='placeholder'
+            src='https://static.thenounproject.com/png/59554-200.png'
+            width={mapHeight}
+            height={mapHeight}
+            alt={txt.worldMap}
+            title={txt.worldComment}
+          />
+        ) : (
+          <picture>
+            <source className={'hide-if-theme-toggled'} srcSet={imgSrc.dark} media='(prefers-color-scheme: dark)' />
+            <img
               className={styles.youAreHere}
               key='you-are-here'
-              src={`${mapHost}/styles/v1/mapbox/${theme.mapBoxTheme}/static/${roundCoord(lon)},${roundCoord(lat)},${mapZoom},0/${width}x${mapHeight}?access_token=${token}`}
+              src={imgSrc.light}
               width={width}
               height={mapHeight}
-              alt={txt.position(position)}
-              title={txt.position(position)}
+              alt={position.name}
+              title={position.name}
             />
-          )}
-        </div>
+          </picture>
+        )}
+      </div>
     </div>
   )
 }

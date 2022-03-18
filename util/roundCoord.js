@@ -1,3 +1,3 @@
-export default function roundCoord (x, factor = 100) {
-  return Math.round(x * factor) / factor
+export default function roundCoord (nb, factor = 100) {
+  return Math.round(nb * factor) / factor
 }

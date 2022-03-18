@@ -7,15 +7,40 @@ import toDatasets from '../chart/toDatasets'
 import makeOptions from '../chart/chartOptions'
 import styles from '../styles/Forecast.module.css'
 import LocaleContext from '../ctx/locale'
-import ThemeContext from '../ctx/theme'
 import getBounds from '../chart/getBounds'
 
 function Forecast ({ data, toGraphData, showTimes, name }) {
   const chart = useRef(null)
   const canvas = useRef(null)
   const locale = useContext(LocaleContext)
-  const theme = useContext(ThemeContext)
+  const [theme, setTheme] = useState(null)
   const [hidden, setHidden] = useState(true)
+
+  function getTheme() {
+    const docStyles = window.getComputedStyle(window.document.documentElement)
+    return {
+      textColor: docStyles.getPropertyValue('--text-color'),
+      linkColor: docStyles.getPropertyValue('--link-color'),
+      bgImg: docStyles.getPropertyValue('--bg-img'),
+      themeColor: docStyles.getPropertyValue('--theme-color'),
+      forecastBg: docStyles.getPropertyValue('--forecast-bg'),
+      chartTextColor: docStyles.getPropertyValue('--chart-text-color'),
+      chartGridColor: docStyles.getPropertyValue('--chart-grid-color')
+    }
+  }
+
+  function onThemeChange () {
+    setTheme(getTheme())
+  }
+
+  useEffect(() => {
+    onThemeChange()
+    const matched = window.matchMedia('(prefers-color-scheme: dark)')
+    matched.addEventListener('change', onThemeChange)
+    return () => {
+      matched.removeEventListener('change', onThemeChange)
+    }
+  }, [])
 
   useEffect(() => {
     Chart.register(...registerables)
@@ -28,7 +53,7 @@ function Forecast ({ data, toGraphData, showTimes, name }) {
   }, [locale])
 
   useEffect(() => {
-    if (data) {
+    if (data && theme) {
       const graphData = toGraphData(data)
       if (chart.current) {
         chart.current.destroy()
@@ -37,12 +62,13 @@ function Forecast ({ data, toGraphData, showTimes, name }) {
       const chartConfig = {
         type: 'line',
         data: {
-          datasets: toDatasets(graphData, locale, theme, bounds)
+          datasets: toDatasets(graphData, locale)
         },
         options: makeOptions(locale, theme, showTimes, bounds)
       }
 
       chart.current = new Chart(canvas.current, chartConfig)
+
       setHidden(false)
     } else {
       setHidden(true)
@@ -54,8 +80,7 @@ function Forecast ({ data, toGraphData, showTimes, name }) {
       key={name}
       className={styles.forecast}
       style={{
-        opacity: hidden ? 0 : 1,
-        backgroundColor: theme.bg
+        opacity: hidden ? 0 : 1
       }}
     >
       <canvas ref={canvas} />

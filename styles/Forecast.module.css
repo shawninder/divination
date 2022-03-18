@@ -3,4 +3,5 @@
   min-height: 300px;
   transition: opacity .4s ease-in;
   padding-bottom: 3rem;
+  background-color: var(--forecast-bg);
 }

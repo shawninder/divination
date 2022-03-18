@@ -1,14 +1,7 @@
-import roundCoord from './util/roundCoord'
-
-export function position (pos) {
-  return pos.name || `lat ${roundCoord(pos.coords.latitude)} lon ${roundCoord(pos.coords.longitude)}`
-}
-
 const texts = {
   en: {
     appTitle: 'Divination',
     bannerAlt: 'The Moon',
-    darkMode: 'Dark Mode',
     daysLabel: 'Days',
     desc: 'Get the weather for any city in the World!',
     dismiss: 'dismiss',
@@ -22,7 +15,6 @@ const texts = {
     minTempLabel: 'Low',
     or: 'Or',
     popLabel: 'Probability of precipitation',
-    position,
     rain: 'rain',
     snow: 'snow',
     tempLabel: 'Temperature',
@@ -35,7 +27,6 @@ const texts = {
   fr: {
     appTitle: 'Divination',
     bannerAlt: 'La Lune',
-    darkMode: 'Mode Sombre',
     daysLabel: 'Jours',
     desc: 'Trouvez la météo, où que vous soyez!',
     dismiss: 'fermer',
@@ -49,7 +40,6 @@ const texts = {
     minTempLabel: 'Minimum',
     or: 'Ou',
     popLabel: 'Probabilité de précipitation',
-    position,
     rain: 'pluie',
     snow: 'neige',
     tempLabel: 'Température',

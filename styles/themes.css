@@ -1,0 +1,23 @@
+:root {
+  /* light theme values */
+  --text-color: black;
+  --link-color: mediumblue;
+  --bg-img: url('/bg-light.png');
+  --theme-color: #f6f6f4;
+  --forecast-bg: var(--theme-color);
+  --chart-text-color: dimgray;
+  --chart-grid-color: darkgray;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    /* dark theme values */
+    --text-color: white;
+    --link-color: deepskyblue;
+    --bg-img: url('/bg-dark.png');
+    --theme-color: #343332;
+    --forecast-bg: var(--theme-color);
+    --chart-text-color: aliceblue;
+    --chart-grid-color: lightcyan;
+  }
+}

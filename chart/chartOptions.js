@@ -15,7 +15,7 @@ export default function makeOptions (locale, theme, showTimes, bounds) {
     },
     ticks: {
       display: showTimes,
-      color: theme.fontColor
+      color: theme.chartTextColor
     },
     adapters: {
       date: {
@@ -40,7 +40,7 @@ export default function makeOptions (locale, theme, showTimes, bounds) {
       unit: 'day'
     },
     ticks: {
-      color: theme.fontColor
+      color: theme.chartTextColor
     },
     adapters: {
       date: {
@@ -50,7 +50,7 @@ export default function makeOptions (locale, theme, showTimes, bounds) {
     position: 'top',
     grid: {
       borderWidth: 0,
-      color: theme.fontColor,
+      color: theme.chartTextColor,
       lineWidth: 3
     }
   }
@@ -103,7 +103,7 @@ export default function makeOptions (locale, theme, showTimes, bounds) {
       legend: {
         display: true,
         labels: {
-          color: theme.fontColor
+          color: theme.chartTextColor
         }
       }
     }

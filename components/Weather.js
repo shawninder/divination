@@ -34,9 +34,10 @@ function Weather ({ data }) {
   const humidity = get(data, ['current', 'humidity'])
   const hum = typeof humidity !== 'undefined' ? `${humidity}%` : ''
 
-
+  const windDeg = get(data, ['current', 'wind_deg'])
   const windSpeed = get(data, ['current', 'wind_speed'])
   const wind = typeof windSpeed !== 'undefined' ? `${windSpeed}m/s` : ''
+  const windGust = get(data, ['current', 'wind_gust'])
 
   const rainRaw = get(data, ['current', 'rain', '1h'])
   const rain = typeof rainRaw !== 'undefined' ? `${rainRaw}mm` : ''
@@ -62,9 +63,11 @@ function Weather ({ data }) {
     >
       <div className={styles.info}>
         <h2
-          className={`${styles.position} ${get(position, 'isCoords') ? styles.isCoords : ''}`}
+          className={`${styles.position} ${
+            get(position, 'isCoords') ? styles.isCoords : ''
+          }`}
         >
-          {(position && txt.position(position)) || '-'}
+          {get(position, 'name', '-')}
         </h2>
         <div className={styles.icon}>
           {icon ? (
