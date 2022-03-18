@@ -26,9 +26,12 @@ function Home () {
   const { position, requestLocation, findCity, err, clearErr } = usePosition(locale, setWorking)
   const txt = texts[locale]
 
-  useEffect(async () => {
-    if (position) {
+  useEffect(() => {
+    async function fetchWeather () {
       setWeather(await getWeather(position, locale))
+    }
+    if (position) {
+      fetchWeather()
     } else {
       setWeather(null)
     }
@@ -112,7 +115,7 @@ function Home () {
                     if (item !== locale) {
                       others.push(
                         <Link key={item} href='/' locale={item}>
-                          <a href='/'>{item}</a>
+                          <a>{item}</a>
                         </Link>
                       )
                     }

@@ -57,6 +57,7 @@ function Map () {
         ) : (
           <picture>
             <source className={'hide-if-theme-toggled'} srcSet={imgSrc.dark} media='(prefers-color-scheme: dark)' />
+            {/* eslint-disable-next-line @next/next/no-img-element -- next/Image can't be used like this inside a <picture> element */}
             <img
               className={styles.youAreHere}
               key='you-are-here'

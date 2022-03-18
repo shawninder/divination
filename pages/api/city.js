@@ -2,7 +2,7 @@ import qs from 'qs'
 
 const key = process.env.WEATHER_FORECAST_OPEN_WEATHER_API_KEY
 
-export default async (req, res) => {
+const getCityWeather = async (req, res) => {
   const { query } = req
   if (!query) {
     return res.status(400).end({})
@@ -17,3 +17,5 @@ export default async (req, res) => {
   const cityWeather = await fetch(url)
   return res.status(200).send(cityWeather.body)
 }
+
+export default getCityWeather

@@ -34,10 +34,10 @@ function Weather ({ data }) {
   const humidity = get(data, ['current', 'humidity'])
   const hum = typeof humidity !== 'undefined' ? `${humidity}%` : ''
 
-  const windDeg = get(data, ['current', 'wind_deg'])
+  // const windDeg = get(data, ['current', 'wind_deg'])
   const windSpeed = get(data, ['current', 'wind_speed'])
   const wind = typeof windSpeed !== 'undefined' ? `${windSpeed}m/s` : ''
-  const windGust = get(data, ['current', 'wind_gust'])
+  // const windGust = get(data, ['current', 'wind_gust'])
 
   const rainRaw = get(data, ['current', 'rain', '1h'])
   const rain = typeof rainRaw !== 'undefined' ? `${rainRaw}mm` : ''

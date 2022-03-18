@@ -2,7 +2,7 @@
   "name": "divination",
   "version": "1.0.0",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "next lint",
     "test": "jest",
     "dev": "next dev",
     "build": "next build",
@@ -28,6 +28,7 @@
     "@babel/preset-react": "7.16.7",
     "babel-jest": "27.5.1",
     "eslint": "8.9.0",
+    "eslint-config-next": "12.1.0",
     "eslint-plugin-jest": "26.1.1",
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.29.1",

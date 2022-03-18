@@ -19,7 +19,7 @@ function Location () {
     if (position) {
       clearErr()
     }
-  }, [position])
+  }, [position, clearErr])
 
   async function onSubmit (event) {
     event.preventDefault()

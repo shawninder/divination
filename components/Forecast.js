@@ -29,11 +29,10 @@ function Forecast ({ data, toGraphData, showTimes, name }) {
     }
   }
 
-  function onThemeChange () {
-    setTheme(getTheme())
-  }
-
   useEffect(() => {
+    function onThemeChange() {
+      setTheme(getTheme())
+    }
     onThemeChange()
     const matched = window.matchMedia('(prefers-color-scheme: dark)')
     matched.addEventListener('change', onThemeChange)
@@ -73,7 +72,7 @@ function Forecast ({ data, toGraphData, showTimes, name }) {
     } else {
       setHidden(true)
     }
-  }, [data, theme])
+  }, [data, locale, theme, showTimes, toGraphData])
 
   return (
     <div
